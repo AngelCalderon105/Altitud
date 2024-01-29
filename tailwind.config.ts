@@ -7,13 +7,21 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+    extend: { 
+      fontFamily: {
+      'times': ['Times New Roman', 'serif']
     },
+    colors: {
+      'primary-purple': '#9191FF',
+      'dark-blue': '#000F26',
+      'light-blue': '#B4DBFF',
+      'lightest-blue' : '#DFF0FF',
+      'purple-blue' : '#3535FF'
+    },
+    animation: {
+      'float': 'float 2s infinite',
+    }
+  },
   },
   plugins: [],
 }
