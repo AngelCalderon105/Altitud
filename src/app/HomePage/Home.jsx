@@ -16,7 +16,7 @@ export default function Home() {
                 <Header/>
                 </div>
                 <div className='max-w-xl md:col-span-2 md:row-span-2 lg:col-span-5 lg:row-span-4 xl:row-span-5 self-start'>
-                  <Image src = {rocketSvg}/>
+                  <Image src = {rocketSvg} alt='image of rocket launch'/>
                 </div>
                 <div className='sm:w-3/4 md:w-full md:col-span-2 lg:col-span-6'>
                     <SubHeader text = {"Our team specializes in creating effective and engaging websites that will resonate with your audience"} />
