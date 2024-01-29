@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className= 'text-white font-times'> 
-      <Navbar navbarList = {["Home","Contact Us"]}/>
+      <Navbar navbarList = {["Home","Contact Us","Successful Build"]}/>
         {children}
         </body>
     </html>
