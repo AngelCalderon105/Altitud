@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '../app/HomePage/Navbar'
+import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,6 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="icon" href= '../app/assets/cloud-logo.svg' type='image/svg+xml' />
+   
+      </Head>
       <body className = 'text-white font-times'> 
       <Navbar navbarList = {["Home","Contact Us"]}/>
         {children}
