@@ -18,10 +18,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="icon" href= '../app/assets/cloud-logo.svg' type='image/svg+xml' />
-   
-      </Head>
       <body className = 'text-white font-times'> 
       <Navbar navbarList = {["Home","Contact Us"]}/>
         {children}

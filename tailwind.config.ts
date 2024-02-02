@@ -20,6 +20,9 @@ const config: Config = {
     },
     animation: {
       'float': 'float 2s infinite',
+    },
+    height: {
+      'card-height': '600px'
     }
   },
   },
