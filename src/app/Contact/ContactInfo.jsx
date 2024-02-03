@@ -6,7 +6,7 @@ export default function ContactInfo() {
 
    return (
 
-    <ul className='flex flex-col text-xl'>
+    <ul className='flex flex-col text-lg sm:text-3xl md:text-lg lg:text-xl'>
       <li className='flex items-center'>
         <Image src={home} alt="" className='h-8 m-2 w-1/12 ' /> ContactAltitud@gmail.com
       </li>

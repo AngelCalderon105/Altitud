@@ -1,7 +1,7 @@
 export default function Form() {
     return(
    
-       <form action=""  className="bg-white rounded-xl flex flex-col justify-around lg:text-lg 2xl:text-xl m-10 lg:p-3 2xl:px-6 lg:w-9/12 xl:w-9/12 2xl:w-full">
+       <form action=""  className="bg-white rounded-xl flex flex-col justify-around text-2xl sm:text-2xl md:text-base lg:text-lg 2xl:text-xl px-3 sm:px-4 md:px-3 2xl:px-6 w-10/12 sm:w-9/12 md:w-10/12 lg:w-9/12 xl:w-10/12 2xl:w-9/12 mb-40 md:mb-10 m-5">
         <ul className="text-black flex flex-col p-3">
             <li className="flex flex-col py-2">
                 <label htmlFor="customerName">Full Name</label>
@@ -29,7 +29,7 @@ export default function Form() {
 
         </ul>
         <div className="flex justify-center p-3">
-        <button className="bg-purple-blue rounded-md p-1.5 px-7">Submit</button>
+        <button className="bg-purple-blue rounded-md p-1.5 px-14 md:px-7">Submit</button>
         </div>
        </form>
    

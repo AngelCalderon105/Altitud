@@ -22,7 +22,8 @@ const config: Config = {
       'float': 'float 2s infinite',
     },
     height: {
-      'card-height': '600px'
+      'card-height': '600px',
+      'mobile-card': '800px'
     }
   },
   },
