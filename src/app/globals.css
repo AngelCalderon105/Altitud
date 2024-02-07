@@ -20,16 +20,16 @@ body {
 }
 @media only screen and (max-width:639px){
   .picSize {
-    background-size:600%;
+    background-size:390%;
   }
 }
 @media only screen and (min-width:640px){
   .picSize {
-    background-size:280%;
+    background-size:220%;
   }
 }
 @media only screen and (min-width:870px){
   .picSize {
-    background-size:180%;
+    background-size:155%;
   }
 }

@@ -1,7 +1,7 @@
 export default function Form() {
     return(
    
-       <form action=""  className="bg-white rounded-xl flex flex-col justify-around text-2xl sm:text-2xl md:text-base lg:text-lg 2xl:text-xl px-3 sm:px-4 md:px-3 2xl:px-6 w-10/12 sm:w-9/12 md:w-10/12 lg:w-9/12 xl:w-10/12 2xl:w-9/12 mb-40 md:mb-10 m-5">
+       <form action=""  className="bg-white rounded-xl flex flex-col justify-around text-sm sm:text-lg md:text-sm lg:text-lg px-3 sm:px-4 md:px-3 2xl:px-6 w-10/12 sm:w-9/12 md:w-10/12 lg:w-9/12 xl:w-9/12 2xl:w-9/12 m-5">
         <ul className="text-black flex flex-col p-3">
             <li className="flex flex-col py-2">
                 <label htmlFor="customerName">Full Name</label>
@@ -9,7 +9,7 @@ export default function Form() {
             </li>
             <li className="flex flex-col py-2">
                 <label htmlFor="customerEmail">Your Email</label>
-                <input type="text" className="bg-lightest-blue rounded-md pl-2" placeholder="Your Name" id="customerEmail"/>
+                <input type="text" className="bg-lightest-blue rounded-md pl-2" placeholder="Your Email" id="customerEmail"/>
             </li>
             <li className="flex flex-col py-2">
                 <label htmlFor="Timeline">Timeline for Project</label>

@@ -22,8 +22,10 @@ const config: Config = {
       'float': 'float 2s infinite',
     },
     height: {
-      'card-height': '600px',
-      'mobile-card': '800px'
+      'sm-card-height': '615px',
+      'mobile-height' : '520px',
+      'md-card-height':'490px',
+      'lg-card-height': '535px'
     }
   },
   },
