@@ -7,3 +7,4 @@ export default function NavbarItem({itemName}) {
     )
 
 }
+//we should probably delete this, no longer in use

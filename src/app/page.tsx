@@ -4,8 +4,8 @@ import Form from '../app/Contact/CustomerInput'
 export default function LandingPage() {
   return (
   <>
-  <Home/>
-  <Form/>
+  <Home id ="home-section"/>
+  <Form id = "contact-section"/>
   <Footer/>
   </>
    

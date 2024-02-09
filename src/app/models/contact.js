@@ -24,6 +24,10 @@ const contactSchema = new Schema({
         minLength:[2,'Description must be longer than 2 characters'],
         maxLength:[50, 'Description must be lesser than 50 characters'], 
     },
+    entryDate: {
+        type:Date,
+        default:Date.now
+    }
     
    
 });
