@@ -1,36 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Altitud: Empowering Small Businesses with Complimentary Full-Stack Web Development Services
 
-## Getting Started
+At Altitud, we believe in the transformative power of technology to uplift communities and foster growth. As a full-stack web development company dedicated to small businesses, our mission is simple yet impactful: to provide top-tier web development services completely free of charge.
 
-First, run the development server:
+Founded by a team of passionate software engineers driven by a dream to make a difference, we specialize in creating custom, user-friendly websites and applications that cater to the unique needs of small businesses. Our services are designed not just to enhance digital presence but to unlock new opportunities for growth and engagement in the digital world.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Our commitment to community upliftment is at the heart of everything we do. By removing the financial barrier often associated with web development, we open doors for local businesses to thrive in an increasingly digital marketplace. Whether it's building a brand-new website, revamping an existing one, or creating powerful web applications, our holistic approach ensures that every project we undertake is not just about technology, but about people and their dreams.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+At Altitud, your vision is our blueprint. Together, we can build digital solutions that not only serve your immediate needs but also contribute to a vibrant, thriving community.
