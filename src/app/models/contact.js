@@ -13,17 +13,18 @@ const contactSchema = new Schema({
         required:[true,'Email is required'],
         match: [/^[\w.%+-]+@[\w.-]+\.[A-Za-z]{2,}$/i, "Invalid email address"]
     },
+    clientTimeline:{
+        type: String,
+        required:[true,'Timeline is required'], 
+    },
     clientDescription:  {
         type: String,
         required:[true,'Description is required'],
         trim: true,
         minLength:[2,'Description must be longer than 2 characters'],
-        maxLength:[50, 'Description must be lesser than 50 characters'] 
+        maxLength:[50, 'Description must be lesser than 50 characters'], 
     },
-    clientTimeline:{
-        type: String,
-        required:[true,'Timeline is required'], 
-    }
+    
    
 });
 
