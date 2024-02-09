@@ -17,18 +17,20 @@ const handleChange = (evt) => {
 
 const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
     
     const { clientName, clientEmail, clientTimeline, clientDescription } = formData;
 
 
-    const res = await fetch('api/contact',{
+    const res = await fetch('../api',{
         method: "POST",
         headers: {
             "Content-type": "application/json"
         },
         body: JSON.stringify({ clientName, clientEmail, clientTimeline, clientDescription}),
-    } );
+    } 
+    
+    );
 
     const {msg} = await res.json();
     setError(msg);

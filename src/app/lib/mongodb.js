@@ -1,15 +1,13 @@
 import mongoose from "mongoose";
- 
-const connectDB = async () => {
-    try{
-        if (mongoose.connection.readyState === 1) {
-            await mongoose.connect(process.env.MONGODB_URI);
-            console.log('db connected')
-        }
-    }
-    catch(error){
-        console.log(error);
-    }
- };
 
- export default connectDB;
+const MONGODB_URI = 'mongodb+srv://angelcalderon105:crsuiVSN3M4dS2v4@cluster0.pnxrdfi.mongodb.net/altitud-contact-form'
+const connectDB = async () => {
+    try {
+        await mongoose.connect(MONGODB_URI);
+        console.log('Database connection successful');
+    } catch (error) {
+        console.log('Error connecting to MongoDB:', error);
+    }
+};
+
+export default connectDB;
