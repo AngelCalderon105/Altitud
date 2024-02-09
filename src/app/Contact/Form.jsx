@@ -66,7 +66,7 @@ const handleSubmit = async (e) => {
             </li>
 
         </ul>
-        <div className="flex justify-center p-3">
+        <div className="flex justify-center pb-3  md:p-3">
         <button className="bg-purple-blue rounded-md p-1.5 px-14 ">Submit</button>
         </div>
        </form>
