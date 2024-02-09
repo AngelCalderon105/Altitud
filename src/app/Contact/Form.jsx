@@ -81,10 +81,17 @@ export default function Form() {
                 <label htmlFor="clientName">Full Name</label>
                 <input name="clientName" type="text" className=" bg-lightest-blue rounded-md  p-1 " placeholder="Your Name" id="clientName" onChange={handleChange} value={formData.clientName}/>
             </li>
+
+            <li className="flex flex-col py-2">
+            <label htmlFor="clientTelephone">Your Phone Number {!validation.clientTelephone ? <p className="text-red-500">Invalid Telephone Number</p> : ''} </label> 
+            <input name="clientTelephone" type="text" className={getInputClass('clientTelephone')} placeholder="Your Phone #" id="clientTelephone" onChange={handleChange} value={formData.clientTelephone} />
+             </li>
+        
             <li className="flex flex-col py-2">
                 <label htmlFor="clientEmail">Your Email {!validation.clientEmail ? <p className="text-red-500">Invalid Email</p>: ''}</label>
                 <input name="clientEmail" type="text" className={getInputClass('clientEmail')} placeholder="Your Email" id="clientEmail" onChange={handleChange} value={formData.clientEmail}/>
             </li>
+
             <li className="flex flex-col py-2">
                 <label htmlFor="Timeline">Timeline for Project</label>
                  <select name="clientTimeline" id="Timeline" className="bg-lightest-blue rounded-md p-1" onChange={handleChange} value={formData.clientTimeline}>
@@ -95,12 +102,6 @@ export default function Form() {
                      <option value="4-6 months">4-6 months</option>
                  </select>
             </li>
-
-            <li className="flex flex-col py-2">
-            <label htmlFor="clientTelephone">Your Phone Number {!validation.clientTelephone ? <p className="text-red-500">Invalid Telephone Number</p> : ''} </label> 
-            <input name="clientTelephone" type="text" className={getInputClass('clientTelephone')} placeholder="Your Phone #" id="clientTelephone" onChange={handleChange} value={formData.clientTelephone} />
-           
-        </li>
 
             <li className="flex flex-col py-2">
                 <label htmlFor="clientDescription">Description</label>
