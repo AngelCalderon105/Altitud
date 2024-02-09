@@ -5,11 +5,11 @@ import mongoose from "mongoose";
 
 export async function POST(req) {
   
-  const {clientName,clientEmail,clientTimeline,clientDescription } = await req.json();
+  const {clientName,clientEmail,clientTimeline,clientTelephone,clientDescription } = await req.json();
 
   try {
     await connectDB();
-    await Contact.create({ clientName,clientEmail,clientTimeline,clientDescription });
+    await Contact.create({ clientName,clientEmail,clientTimeline,clientTelephone,clientDescription });
 
     return NextResponse.json({
       msg: ["Message sent successfully"],

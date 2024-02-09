@@ -15,19 +15,24 @@ const contactSchema = new Schema({
     },
     clientTimeline:{
         type: String,
-        required:[true,'Timeline is required'], 
+        required:[true,'Timeline is required'] 
+    },
+    clientTelephone: {
+        type:String,
+        required:[true,'Phone number required'],
+        match: [/^(\+\d{1,2}\s)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/, 'Invalid phone number']
     },
     clientDescription:  {
         type: String,
         required:[true,'Description is required'],
         trim: true,
         minLength:[2,'Description must be longer than 2 characters'],
-        maxLength:[50, 'Description must be lesser than 50 characters'], 
+        maxLength:[50, 'Description must be lesser than 50 characters'] 
     },
     entryDate: {
         type:Date,
         default:Date.now
-    }
+    },
     
    
 });

@@ -5,6 +5,7 @@ import SubHeader from '../Components/SubHeader'
 import rocketSvg from '../assets/rocket-launch.svg'
 import ActionButton from '../Components/ActionButton'
 import FormButton from '../Components/FormButton'
+import Link from 'next/link'
 
 export default function Home({id}) {
     return (
@@ -21,8 +22,12 @@ export default function Home({id}) {
                     <SubHeader text = {"Our team specializes in creating effective and engaging websites that will resonate with your audience"} />
                 </div>    
                 <div className=' md:col-span-2  flex flex-col md:flex-row-reverse items-center gap-8 md:gap-4 lg:gap-6 md:justify-self-start '>
+                    <Link href={"/#contact-section"}>
                 <FormButton text = "Tell us about your website"/>
-                <ActionButton text = "Contact Us"/>   
+                </Link>
+                <Link href={"/#contact-section"}>
+                <ActionButton text = "Contact Us"/> 
+                 </Link> 
                 </div>
                 
                 <a href="" className=' motion-safe:animate-float md:col-span-4 lg:col-span-12 '><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">

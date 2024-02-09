@@ -1,42 +1,78 @@
 'use client'
-import { useState} from "react"
+import { useState } from "react";
 
 export default function Form() {
-const [formData, setFormData] = useState({clientName:'',clientEmail:'', clientTimeline:'',clientDescription:''});
-const [error, setError] = useState([]);
+    const [formData, setFormData] = useState({ clientName: '', clientEmail: '', clientTimeline: '', clientTelephone:'', clientDescription: ''  });
+    const [validation, setValidation] = useState({ clientName: true, clientEmail: true, clientTimeline: true, clientTelephone:true, clientDescription: true  });
+    const [error, setError] = useState(null);
 
-const handleChange = (evt) => {
-    const changeField = evt.target.name;
-    const newValue = evt.target.value;
+    // Email validation regex
+    const emailRegex = /^[\w.%+-]+@[\w.-]+\.[A-Za-z]{2,}$/i;
+    const phoneRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
 
-    setFormData(currData => ({
-        ...currData,
-        [changeField]: newValue,
-      }));
-};
+    const validateInput = (name, value) => {
+        if (name === 'clientEmail') {
+            return emailRegex.test(value);
+        }
+        else if(name ==='clientTelephone') {
+            return phoneRegex.test(value);
+        }
+        // Add other validations as needed
+        return true;
+    };
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    // console.log(formData);
+    const handleChange = (evt) => {
+        const { name, value } = evt.target;
+        const isValid = validateInput(name, value);
+
+        setFormData(currData => ({
+            ...currData,
+            [name]: value
+        }));
+
+        setValidation(currValidation => ({
+            ...currValidation,
+            [name]: isValid
+        }));
+        
+        if (name === 'clientEmail' && !isValid) {
+            setError("Invalid Email");
+        } else if (name === 'clientTelephone' && !isValid) {
+            setError("Invalid Phone Number");
+        } else {
+            setError(null);
+        }
+    };
+
     
-    const { clientName, clientEmail, clientTimeline, clientDescription } = formData;
 
-
-    const res = await fetch('../api',{
-        method: "POST",
-        headers: {
-            "Content-type": "application/json"
-        },
-        body: JSON.stringify({ clientName, clientEmail, clientTimeline, clientDescription}),
-    } 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // console.log(formData);
+        
+        const { clientName, clientEmail, clientTimeline, clientTelephone, clientDescription } = formData;
     
-    );
-
-    const {msg} = await res.json();
-    setError(msg);
     
-    setFormData({clientName:'',clientEmail:'', clientTimeline:'',clientDescription:''});
-};
+        const res = await fetch('../api',{
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({ clientName, clientEmail, clientTimeline, clientTelephone, clientDescription}),
+        } 
+        
+        );
+    
+        const {msg} = await res.json();
+        setError(msg);
+        
+        setFormData({clientName:'',clientEmail:'', clientTimeline:'',clientTelephone:'',clientDescription:''});
+    };
+
+    // Function to return the appropriate input class
+    const getInputClass = (fieldName) => {
+        return `bg-lightest-blue rounded-md p-1 ${validation[fieldName] ? '' : 'border-2 border-red-500 '}`;
+    };
     return(
    
        <form action="" onSubmit={handleSubmit}  className="bg-white rounded-xl flex flex-col justify-around text-xl px-3 sm:px-4 md:px-3 2xl:px-6 w-11/12 sm:w-10/12 2xl:w-9/12 my-5">
@@ -46,8 +82,8 @@ const handleSubmit = async (e) => {
                 <input name="clientName" type="text" className=" bg-lightest-blue rounded-md  p-1 " placeholder="Your Name" id="clientName" onChange={handleChange} value={formData.clientName}/>
             </li>
             <li className="flex flex-col py-2">
-                <label htmlFor="clientEmail">Your Email</label>
-                <input name="clientEmail" type="text" className="bg-lightest-blue rounded-md p-1" placeholder="Your Email" id="clientEmail" onChange={handleChange} value={formData.clientEmail}/>
+                <label htmlFor="clientEmail">Your Email {!validation.clientEmail ? <p className="text-red-500">Invalid Email</p>: ''}</label>
+                <input name="clientEmail" type="text" className={getInputClass('clientEmail')} placeholder="Your Email" id="clientEmail" onChange={handleChange} value={formData.clientEmail}/>
             </li>
             <li className="flex flex-col py-2">
                 <label htmlFor="Timeline">Timeline for Project</label>
@@ -59,6 +95,12 @@ const handleSubmit = async (e) => {
                      <option value="4-6 months">4-6 months</option>
                  </select>
             </li>
+
+            <li className="flex flex-col py-2">
+            <label htmlFor="clientTelephone">Your Phone Number {!validation.clientTelephone ? <p className="text-red-500">Invalid Telephone Number</p> : ''} </label> 
+            <input name="clientTelephone" type="text" className={getInputClass('clientTelephone')} placeholder="Your Phone #" id="clientTelephone" onChange={handleChange} value={formData.clientTelephone} />
+           
+        </li>
 
             <li className="flex flex-col py-2">
                 <label htmlFor="clientDescription">Description</label>

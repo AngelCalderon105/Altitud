@@ -1,6 +1,7 @@
 import Logo from '../Components/Logo'
 import ActionButton from '../Components/ActionButton'
 import Link from 'next/link'
+import NavbarItem from './NavbarItem'
 export default function NavBar({navbarList}) {
     return (
         <nav className='bg-dark-blue md:bg-transparent fixed md:absolute top-0 left-0 w-full z-50 md:flex '>
@@ -16,15 +17,17 @@ export default function NavBar({navbarList}) {
             <div className='hidden md:flex md:justify-between md:w-full'>
                 <ul className='flex items-center text-lg'>
                     {navbarList.map((item, index) => (
-                        <li key={index} className='text-xl px-4'>
+                        <li key={index}>
                             <Link href= {`/${item.path}`}>
-                              {item.name}
+                             <NavbarItem itemName = {item.name}/>
                             </Link>
                         </li>
                     ))}
                 </ul>
                 <div className='px-4 md:flex md:items-center'>
+                    <Link href={"/#contact-section"}>
                     <ActionButton text="Let's Connect" />
+                    </Link>
                 </div>
             </div>
         </nav>
