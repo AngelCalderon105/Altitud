@@ -1,6 +1,11 @@
 import Image from 'next/image'
 import cloudLogo from '../assets/cloud-logo.svg'
-export default function Logo({logoSize , textSize}) {
+
+interface LogoProps {
+    logoSize:string;
+    textSize:string;
+}
+export default function Logo({logoSize, textSize}:LogoProps) {
     return (
         <div className = 'flex jusitfy-center items-center gap-2  max-w-max'>
             <Image src = {cloudLogo} className={logoSize} alt='logo'/>

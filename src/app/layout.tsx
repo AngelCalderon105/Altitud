@@ -1,14 +1,17 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '../app/HomePage/Navbar'
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Altitud',
   description: 'Community uplifting web developers',
 }
- const navbarList = [
+interface NavbarItem {
+  name:string;
+  path:string;
+}
+
+ const navbarList:NavbarItem[] = [
     {name:"Home", path:"#home-section"},
     {name:"Contact Us", path:"#contact-section"},
  ];

@@ -2,9 +2,9 @@
 import { useState, useEffect } from "react";
 
 export default function Header() {
-    const serviceList = ["UI/UX Design", "SEO Optimization", "Photo Shoots", "Responsive Design"];
+    const serviceList: string[] = ["UI/UX Design", "SEO Optimization", "Photo Shoots", "Responsive Design"];
     
-    const [serviceIndex, setServiceIndex] = useState(0);
+    const [serviceIndex, setServiceIndex] = useState<number>(0);
 
     useEffect(() => {
         const rotateService = () => {

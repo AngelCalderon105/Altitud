@@ -2,8 +2,11 @@ import SubHeader from '../Components/SubHeader'
 import CardBackground from './CardBackground'
 import ContactInfo from './ContactInfo'
 
+interface CustomerInputProps {
+    id: string;
+}
 
-export default function CustomerInput({id}) {
+export default function CustomerInput({id}:CustomerInputProps) {
 
     return (
         <div id={id} className='flex flex-col items-center md:m-20 mb-10'>

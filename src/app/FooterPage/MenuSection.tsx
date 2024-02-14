@@ -1,6 +1,11 @@
 import MenuLink from "./MenuLink"
 import MenuTitle from "./MenuTitle"
-export default function MenuSection({menuList}) {
+
+interface MenuSectionProps {
+    menuList:string[];
+}
+
+export default function MenuSection({menuList}: MenuSectionProps) {
 
     return (
         <ul>

@@ -1,4 +1,8 @@
-export default function MenuTitle({sectionTitle}) {
+interface MenuTitleProps {
+    sectionTitle: string;
+}
+
+export default function MenuTitle({sectionTitle}:MenuTitleProps) {
 
     return ( 
         <> 

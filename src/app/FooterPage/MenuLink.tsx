@@ -1,4 +1,8 @@
-export default function MenuLink({directoryLink}) {
+interface MenuLinkProps {
+    directoryLink:string;
+}
+
+export default function MenuLink({directoryLink}:MenuLinkProps) {
     
     return (
         <> 

@@ -2,7 +2,16 @@ import Logo from '../Components/Logo'
 import ActionButton from '../Components/ActionButton'
 import Link from 'next/link'
 import NavbarItem from './NavbarItem'
-export default function NavBar({navbarList}) {
+
+interface NavbarItem {
+    name:string;
+    path:string;
+}
+
+interface NavbarItemProps {
+    navbarList:NavbarItem[];
+}
+export default function NavBar({navbarList}:NavbarItemProps) {
     return (
         <nav className='bg-dark-blue md:bg-transparent fixed md:absolute top-0 left-0 w-full z-50 md:flex '>
             <div className='text-3xl flex justify-center items-center md:justify-start py-4 md:px-5 md:w-60'>
@@ -16,8 +25,8 @@ export default function NavBar({navbarList}) {
         
             <div className='hidden md:flex md:justify-between md:w-full'>
                 <ul className='flex items-center text-lg'>
-                    {navbarList.map((item, index) => (
-                        <li key={index}>
+                    {navbarList.map((item) => (
+                        <li key={item.name}>
                             <Link href= {`/${item.path}`}>
                              <NavbarItem itemName = {item.name}/>
                             </Link>

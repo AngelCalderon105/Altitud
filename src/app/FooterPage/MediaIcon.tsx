@@ -1,5 +1,9 @@
 import Image from "next/image"
-export default function MediaIcon({icon}) {
+
+interface MediaIconProps {
+    icon:string;
+}
+export default function MediaIcon({icon}:MediaIconProps) {
 
     return (
         <>

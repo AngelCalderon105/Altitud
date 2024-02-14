@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Navbar from './Navbar'
 import Header from './Header'
 import SubHeader from '../Components/SubHeader'
 import rocketSvg from '../assets/rocket-launch.svg'
@@ -7,7 +6,11 @@ import ActionButton from '../Components/ActionButton'
 import FormButton from '../Components/FormButton'
 import Link from 'next/link'
 
-export default function Home({id}) {
+interface HomeProps {
+    id:string;
+}
+
+export default function Home({id}:HomeProps) {
     return (
         <div id={id} className = ' md:mx-8 my-8'>
         <div className='flex justify-center'>

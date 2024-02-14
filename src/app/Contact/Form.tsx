@@ -1,16 +1,32 @@
 'use client'
 import { useState } from "react";
 
-export default function Form() {
-    const [formData, setFormData] = useState({ clientName: '', clientEmail: '', clientTimeline: '', clientTelephone:'', clientDescription: ''  });
-    const [validation, setValidation] = useState({ clientName: true, clientEmail: true, clientTimeline: true, clientTelephone:true, clientDescription: true  });
-    const [error, setError] = useState(null);
+interface FormData {
+    clientName: string;
+    clientEmail: string;
+    clientTimeline: string;
+    clientTelephone: string;
+    clientDescription: string;
+}
 
+interface ValidationData {
+    clientName: boolean;
+    clientEmail: boolean;
+    clientTimeline: boolean;
+    clientTelephone: boolean;
+    clientDescription: boolean;
+}
+
+export default function Form() {
+    const [formData, setFormData] = useState<FormData>({ clientName: '', clientEmail: '', clientTimeline: '', clientTelephone:'', clientDescription: ''  });
+    const [validation, setValidation] = useState<ValidationData>({ clientName: true, clientEmail: true, clientTimeline: true, clientTelephone:true, clientDescription: true  });
+    const [error, setError] = useState<string | null>(null);
+    
     // Email validation regex
     const emailRegex = /^[\w.%+-]+@[\w.-]+\.[A-Za-z]{2,}$/i;
     const phoneRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
 
-    const validateInput = (name, value) => {
+    const validateInput = (name:string, value:string) => {
         if (name === 'clientEmail') {
             return emailRegex.test(value);
         }
@@ -21,14 +37,14 @@ export default function Form() {
         return true;
     };
 
-    const handleChange = (evt) => {
+    const handleChange = (evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement| HTMLSelectElement>) => {
         const { name, value } = evt.target;
         const isValid = validateInput(name, value);
 
         setFormData(currData => ({
             ...currData,
             [name]: value
-        }));
+        }as FormData));
 
         setValidation(currValidation => ({
             ...currValidation,
@@ -46,7 +62,7 @@ export default function Form() {
 
     
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         // console.log(formData);
         
@@ -69,10 +85,16 @@ export default function Form() {
         setFormData({clientName:'',clientEmail:'', clientTimeline:'',clientTelephone:'',clientDescription:''});
     };
 
+    function isKeyOfValidationData(key: string): key is keyof ValidationData {
+        return key in validation;
+    }
     // Function to return the appropriate input class
-    const getInputClass = (fieldName) => {
+   const getInputClass = (fieldName: string) => {
+    if (isKeyOfValidationData(fieldName)) {
         return `bg-lightest-blue rounded-md p-1 ${validation[fieldName] ? '' : 'border-2 border-red-500 '}`;
-    };
+    }
+    return 'bg-lightest-blue rounded-md p-1'; // Default class if fieldName is not a valid key
+};
     return(
    
        <form action="" onSubmit={handleSubmit}  className="bg-white rounded-xl flex flex-col justify-around text-xl px-3 sm:px-4 md:px-3 2xl:px-6 w-11/12 sm:w-10/12 2xl:w-9/12 my-5">
@@ -105,7 +127,7 @@ export default function Form() {
 
             <li className="flex flex-col py-2">
                 <label htmlFor="clientDescription">Description</label>
-                 <textarea name="clientDescription" id="clientDescription" className="bg-lightest-blue rounded-md pl-2" placeholder="Let us know about your website." rows="5"  onChange={handleChange} value={formData.clientDescription}></textarea>
+                 <textarea name="clientDescription" id="clientDescription" className="bg-lightest-blue rounded-md pl-2" placeholder="Let us know about your website." rows={5}  onChange={handleChange} value={formData.clientDescription}></textarea>
             </li>
 
         </ul>

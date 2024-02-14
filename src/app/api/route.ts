@@ -1,9 +1,9 @@
 import connectDB from "../lib/mongodb";
 import Contact from "../models/contact";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 
-export async function POST(req) {
+export async function POST(req:Request) {
   
   const {clientName,clientEmail,clientTimeline,clientTelephone,clientDescription } = await req.json();
 
