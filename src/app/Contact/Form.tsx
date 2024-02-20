@@ -37,20 +37,24 @@ export default function Form() {
         return true;
     };
 
-    const handleChange = (evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement| HTMLSelectElement>) => {
+    const handleChange = (evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = evt.target;
-        const isValid = validateInput(name, value);
-
+        let isValid = true;
+    //resets error state if field is cleared
+        if (value.length > 0) {
+            isValid = validateInput(name, value);
+        }
+    
         setFormData(currData => ({
             ...currData,
             [name]: value
-        }as FormData));
-
+        } as FormData));
+    
         setValidation(currValidation => ({
             ...currValidation,
             [name]: isValid
         }));
-        
+    
         if (name === 'clientEmail' && !isValid) {
             setError("Invalid Email");
         } else if (name === 'clientTelephone' && !isValid) {
@@ -59,31 +63,37 @@ export default function Form() {
             setError(null);
         }
     };
+    
 
     
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // console.log(formData);
-        
+    
+        // If all fields are entered and valid
+        if (!validation.clientEmail || !validation.clientTelephone ||!validation.clientName || !validation.clientTimeline) {
+            // If either is invalid, set an appropriate error message and return early
+            setError("Please fill all fields out and try again.");
+            return;
+        }
+    
+        // Rest of your submission logic
         const { clientName, clientEmail, clientTimeline, clientTelephone, clientDescription } = formData;
-    
-    
-        const res = await fetch('../api',{
+        const res = await fetch('../api', {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
             },
-            body: JSON.stringify({ clientName, clientEmail, clientTimeline, clientTelephone, clientDescription}),
-        } 
-        
-        );
+            body: JSON.stringify({ clientName, clientEmail, clientTimeline, clientTelephone, clientDescription }),
+        });
     
-        const {msg} = await res.json();
+        const { msg } = await res.json();
         setError(msg);
-        
-        setFormData({clientName:'',clientEmail:'', clientTimeline:'',clientTelephone:'',clientDescription:''});
+    
+        // Reset form data after successful submission
+        setFormData({ clientName: '', clientEmail: '', clientTimeline: '', clientTelephone: '', clientDescription: '' });
     };
+    
 
     function isKeyOfValidationData(key: string): key is keyof ValidationData {
         return key in validation;
@@ -106,7 +116,7 @@ export default function Form() {
 
             <li className="flex flex-col py-2">
             <label htmlFor="clientTelephone">Your Phone Number {!validation.clientTelephone ? <p className="text-red-500">Invalid Telephone Number</p> : ''} </label> 
-            <input name="clientTelephone" type="text" className={getInputClass('clientTelephone')} placeholder="Your Phone #" id="clientTelephone" onChange={handleChange} value={formData.clientTelephone} />
+            <input name="clientTelephone" type="text" className={getInputClass('clientTelephone')} placeholder="(xxx)-xxx-xxxx" id="clientTelephone" onChange={handleChange} value={formData.clientTelephone} />
              </li>
         
             <li className="flex flex-col py-2">
@@ -117,7 +127,7 @@ export default function Form() {
             <li className="flex flex-col py-2">
                 <label htmlFor="Timeline">Timeline for Project</label>
                  <select name="clientTimeline" id="Timeline" className="bg-lightest-blue rounded-md p-1" onChange={handleChange} value={formData.clientTimeline}>
-                    <option value="">Select your timeframe</option>
+                    <option value="" disabled hidden>Select your timeframe</option> 
                      <option value="1 month">1 month</option>
                      <option value="1-2 months">1-2 months</option>
                      <option value="2-4 month">2-4 months</option>
