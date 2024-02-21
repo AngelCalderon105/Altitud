@@ -1,6 +1,7 @@
 'use client'
 import { useState } from "react";
-
+import checkMark from '../assets/confirmation.svg'
+import Image from "next/image";
 interface FormData {
     clientName: string;
     clientEmail: string;
@@ -21,6 +22,7 @@ export default function Form() {
     const [formData, setFormData] = useState<FormData>({ clientName: '', clientEmail: '', clientTimeline: '', clientTelephone:'', clientDescription: ''  });
     const [validation, setValidation] = useState<ValidationData>({ clientName: true, clientEmail: true, clientTimeline: true, clientTelephone:true, clientDescription: true  });
     const [error, setError] = useState<string | null>(null);
+    const [confirmation,setConfirmation] = useState<Boolean>(false);
     
     // Email validation regex
     const emailRegex = /^[\w.%+-]+@[\w.-]+\.[A-Za-z]{2,}$/i;
@@ -65,8 +67,6 @@ export default function Form() {
     };
     
 
-    
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
     
@@ -87,14 +87,35 @@ export default function Form() {
             body: JSON.stringify({ clientName, clientEmail, clientTimeline, clientTelephone, clientDescription }),
         });
     
-        const { msg } = await res.json();
-        setError(msg);
-    
+        const { msg,confirmation } = await res.json();
+       
+        if(!confirmation) {
+            setConfirmation(true);
+        }
+        else {
+             setError(msg);
+        }
+
+       
         // Reset form data after successful submission
         setFormData({ clientName: '', clientEmail: '', clientTimeline: '', clientTelephone: '', clientDescription: '' });
     };
     
+ const handleClosePopup = () => {
+            setConfirmation(false);
+        }
 
+    const ConfirmationPopup: React.FC = () => {
+            return (
+                <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 flex justify-center items-center">
+        <div className="flex flex-col items-center text-center bg-purple-700  rounded-2xl shadow-lg m-5 p-5 w-9/12 sm:w-1/2 md:w-5/12 lg:w-4/12 xl:w-3/12">
+                   <Image src={checkMark} className="w-28 " alt="confirmation"/>
+                <h1>Thank you for your interest in Altitud. We will get back to you ASAP!</h1>
+                <button onClick={handleClosePopup} className="mt-4 bg-purple-blue rounded-md p-1.5 px-4">Close</button>
+            </div>
+            </div>
+            )
+        }
     function isKeyOfValidationData(key: string): key is keyof ValidationData {
         return key in validation;
     }
@@ -106,8 +127,9 @@ export default function Form() {
     return 'bg-lightest-blue rounded-md p-1'; // Default class if fieldName is not a valid key
 };
     return(
-   
+          
        <form action="" onSubmit={handleSubmit}  className="bg-white rounded-xl flex flex-col justify-around text-xl px-3 sm:px-4 md:px-3 2xl:px-6 w-11/12 sm:w-10/12 2xl:w-9/12 my-5">
+         {confirmation && <ConfirmationPopup />}
         <ul className="text-black flex flex-col p-3">
             <li className="flex flex-col py-2">
                 <label htmlFor="clientName">Full Name</label>
