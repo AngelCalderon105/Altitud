@@ -1,4 +1,4 @@
-import background from '../assets/CardBackgroundd.svg'
+import background from '../assets/CardBackground.svg'
 import ContactInfo from './ContactInfo'
 
 import Form from './Form'
