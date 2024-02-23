@@ -38,3 +38,41 @@ body {
     background-size:155%;
   }
 }
+
+.nav-open {
+  max-height:100vh;
+  overflow: hidden;
+  transition: max-height 0.7s ease-in-out;
+  height:100vh;
+}
+
+.nav-closed {
+  max-height: 65px; /* Use a large enough value to cover the expanded menu */
+  overflow:hidden;
+  transition: max-height 0.7s ease-in-out;
+  height:100vh
+}
+
+.hamburger {
+  transition: transform 0.3s ease;
+}
+
+.top-line, .bottom-line {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.middle-line {
+  transition: opacity 0.3s ease;
+}
+
+.nav-open .top-line {
+  transform: rotate(40deg) translate(3px, -5px);
+}
+
+.nav-open .middle-line {
+  opacity: 0;
+}
+
+.nav-open .bottom-line {
+  transform: rotate(-40deg) translate(-10px, -4px);
+}
