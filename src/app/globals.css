@@ -40,17 +40,17 @@ body {
 }
 
 .nav-open {
-  max-height:100vh;
+  max-height:100dvh;
   overflow: hidden;
   transition: max-height 0.7s ease-in-out;
-  height:100vh;
+  height:100dvh;
 }
 
 .nav-closed {
   max-height: 65px; /* Use a large enough value to cover the expanded menu */
   overflow:hidden;
   transition: max-height 0.7s ease-in-out;
-  height:100vh
+  height:100dvh
 }
 
 .hamburger {
