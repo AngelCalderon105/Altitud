@@ -1,17 +1,12 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '../app/HomePage/Navbar'
+import Head from 'next/head';
+import siteMetaData from './metadata';
 
 export const metadata: Metadata = {
   title: 'Altitud',
-  description: 'Community uplifting web developers',
-  openGraph: {
-    images: [
-      {
-        url: '../app/assets/MetaImage.webp'
-      }
-    ]
-  }
+  description: 'Building Brighter Futures, Software that Uplifts Communities',
 }
 
 
@@ -32,6 +27,9 @@ export default function RootLayout({
  
   return (
     <html lang="en">
+      <Head>
+        <meta property="og:image" content= {siteMetaData.image} />
+      </Head>
       <body className = 'text-white font-times'> 
       <Navbar navbarList = {navbarList}/>
         {children}
