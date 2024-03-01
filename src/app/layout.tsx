@@ -1,14 +1,13 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '../app/HomePage/Navbar'
-import Head from 'next/head'
-
+import image from '../app/assets/MetaImage.webp'
 
 export const metadata: Metadata = {
   title: 'Altitud',
   description: 'Building Brighter Futures, Software that Uplifts Communities',
   openGraph: {
-    images: 'https://altitud.io/altitud/src/app/assets/MetaImage.webp', // Replace with the actual path to your image
+    images: '/src/app/assets/MetaImage.webp', 
   },
 }
 
