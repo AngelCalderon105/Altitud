@@ -4,7 +4,7 @@ import Navbar from '../app/HomePage/Navbar'
 import Head from 'next/head'
 export const metadata: Metadata = {
   title: 'Altitud',
-  description: 'Building Brighter Futures, Software that Uplifts Communities',
+  description: 'This means it updated',
 }
 
 
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <meta property="og:image" content="https://altitud.io/src/app/assets/MetaImage.webp" />
+        <meta property="og:image" content="https://altitud.io/altitud/src/app/assets/MetaImage.webp" />
       </Head>
       <body className = 'text-white font-times'> 
       <Navbar navbarList = {navbarList}/>
