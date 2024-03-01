@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Altitud',
   description: 'Building Brighter Futures, Software that Uplifts Communities',
   openGraph: {
-    images: '/src/app/assets/MetaImage.webp', 
+    images: '/src/app/assets/MetaImage.svg', 
   },
 }
 
