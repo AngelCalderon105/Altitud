@@ -4,7 +4,7 @@ import Navbar from '../app/HomePage/Navbar'
 import Head from 'next/head'
 export const metadata: Metadata = {
   title: 'Altitud',
-  description: 'This means it updated',
+  description: 'Building Brighter Futures, Software that Uplifts Communities',
 }
 
 
