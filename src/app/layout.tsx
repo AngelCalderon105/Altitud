@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '../app/HomePage/Navbar'
-import Head from 'next/head';
-import siteMetaData from './metadata';
-
+import Head from 'next/head'
 export const metadata: Metadata = {
   title: 'Altitud',
   description: 'Building Brighter Futures, Software that Uplifts Communities',
@@ -28,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <meta property="og:image" content= {siteMetaData.image} />
+        <meta property="og:image" content="https://calderonbulldogs.com/src/app/assets/MetaImage.webp" />
       </Head>
       <body className = 'text-white font-times'> 
       <Navbar navbarList = {navbarList}/>
