@@ -5,7 +5,16 @@ import Navbar from '../app/HomePage/Navbar'
 export const metadata: Metadata = {
   title: 'Altitud',
   description: 'Community uplifting web developers',
+  openGraph: {
+    images: [
+      {
+        url: '../app/assets/MetaImage.webp'
+      }
+    ]
+  }
 }
+
+
 interface NavbarItem {
   name:string;
   path:string;
