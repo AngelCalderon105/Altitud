@@ -14,6 +14,5 @@
   - Tailwind CSS
 - **Backend:** 
   - Next.js (API routes)
-  - tRPC
 - **Database:** 
   - MongoDB
